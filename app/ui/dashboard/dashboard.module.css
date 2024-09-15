@@ -12,3 +12,23 @@
     padding: 20px;
   }
 }
+
+.wrapper {
+  display: flex;
+  margin-top: 40px;
+  gap: 20px;
+  .main {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    .cards {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+    }
+  }
+  .side {
+    flex: 1;
+  }
+}

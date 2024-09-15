@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  gap: 10px;
+  background-color: var(--bgSoft);
+  padding: 20px 15px;
+  border-radius: 15px;
+  width: 100%;
+  .texts {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .title {
+      font-size: 13px;
+    }
+    .number {
+      font-size: 24px;
+      font-weight: 500;
+    }
+    .positive {
+      color: lightgreen;
+    }
+  }
+}
+.container:hover {
+  background-color: #333f59;
+}
