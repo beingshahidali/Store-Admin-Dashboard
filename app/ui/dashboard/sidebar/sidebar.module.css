@@ -1,0 +1,38 @@
+.container {
+  position: sticky;
+  top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100vh;
+
+  .user {
+    display: flex;
+    gap: 20px;
+
+    .userImage {
+      border-radius: 50%;
+    }
+    .userDetails {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2 px;
+      .userName {
+        font-weight: 500;
+      }
+      .userTitle {
+        font-size: 12px;
+        color: var(--textSoft);
+      }
+    }
+  }
+  .list {
+    list-style: none;
+    gap: 10px;
+    .cat {
+      color: var(--textSoft);
+      font-weight: bold;
+    }
+  }
+}
