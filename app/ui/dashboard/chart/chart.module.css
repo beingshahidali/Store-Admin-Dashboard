@@ -1,0 +1,13 @@
+.container {
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: var(--bgSoft);
+  border-radius: 15px;
+  padding: 20px;
+  .title {
+    font-weight: 200;
+    color: var(--textSoft);
+  }
+}
