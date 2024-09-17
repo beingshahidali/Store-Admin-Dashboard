@@ -1,0 +1,52 @@
+.container {
+  background-color: var(--bgSoft);
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 10px;
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .addButton {
+      padding: 10px;
+      border-radius: 10px;
+      background-color: #5d5dc9;
+      border: none;
+      color: white;
+    }
+  }
+
+  .table {
+    width: 100%;
+
+    .user {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      .image {
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+  }
+  .table td {
+    padding: 10px;
+  }
+}
+.buttons {
+  display: flex;
+  gap: 10px;
+  .button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    color: var(--text);
+    cursor: pointer;
+  }
+  .view {
+    background-color: teal;
+  }
+  .delete {
+    background-color: crimson;
+  }
+}
