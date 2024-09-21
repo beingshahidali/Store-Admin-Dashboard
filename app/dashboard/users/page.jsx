@@ -5,8 +5,9 @@ import Image from "next/image";
 import Search from "../../ui/dashboard/search/Search";
 import { fetchUsers } from "@/app/lib/data";
 
-const UserPage = async () => {
-  const users = await fetchUsers();
+const UserPage = async ({ searchParams }) => {
+  const q = searchParams?.q || "";
+  const users = await fetchUsers(q);
   return (
     <div className={styles.container}>
       <div className={styles.top}>
