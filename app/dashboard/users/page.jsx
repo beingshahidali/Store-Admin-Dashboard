@@ -8,8 +8,7 @@ import { fetchUsers } from "@/app/lib/data";
 const UserPage = async ({ searchParams }) => {
   const q = searchParams?.q || "";
   const page = searchParams?.page || "1";
-  const { users } = await fetchUsers(q, page);
-  const { count } = await fetchUsers(q, page);
+  const { users, count } = await fetchUsers(q, page);
   return (
     <div className={styles.container}>
       <div className={styles.top}>
