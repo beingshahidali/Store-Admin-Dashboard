@@ -9,7 +9,6 @@ const ProductPage = async ({ searchParams }) => {
   const q = searchParams?.q || "";
   const page = searchParams?.page || "1";
   const { products, count } = await fetchProducts(q, page);
-  console.log({ products });
   return (
     <div className={styles.container}>
       <div className={styles.container}>
