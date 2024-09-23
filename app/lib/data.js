@@ -18,6 +18,24 @@ export const fetchUsers = async (q, page) => {
     throw new Error(e);
   }
 };
+export const fetchUser = async (id) => {
+  try {
+    await connectToDb();
+    const user = await User.findById(id);
+    return user;
+  } catch (e) {
+    throw new Error(e);
+  }
+};
+export const fetchProduct = async (id) => {
+  try {
+    await connectToDb();
+    const product = await Product.findById(id);
+    return product;
+  } catch (e) {
+    throw new Error(e);
+  }
+};
 export const fetchProducts = async (q, page) => {
   const regEx = new RegExp(q, "i");
   const ITEM_PER_PAGE = 2;

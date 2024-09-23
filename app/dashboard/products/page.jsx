@@ -3,8 +3,8 @@ import Pagination from "../../ui/dashboard/pagination/Pagination";
 import styles from "../../ui/dashboard/products/productPage.module.css";
 import Image from "next/image";
 import Search from "../../ui/dashboard/search/Search";
-import { fetchProducts, fetchUsers } from "@/app/lib/data";
-import { deleteProdcut } from "@/app/lib/actions";
+import { fetchProducts } from "@/app/lib/data";
+import { deleteProduct } from "@/app/lib/actions";
 
 const ProductPage = async ({ searchParams }) => {
   const q = searchParams?.q || "";
@@ -56,7 +56,7 @@ const ProductPage = async ({ searchParams }) => {
                         View
                       </button>
                     </Link>
-                    <form action={deleteProdcut}>
+                    <form action={deleteProduct}>
                       <input type="hidden" name="id" value={product?.id} />
                       <button className={`${styles.button} ${styles.delete}`}>
                         Delete

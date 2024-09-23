@@ -33,6 +33,67 @@ export const addUser = async (formData) => {
     throw e;
   }
 };
+export const updateUser = async (formData) => {
+  "use server";
+  const { id, username, email, password, phone, address, isAdmin, isActive } =
+    Object.fromEntries(formData);
+
+  try {
+    await connectToDb();
+
+    const updateFields = {
+      username,
+      email,
+      password,
+      phone,
+      address,
+      isAdmin,
+      isActive,
+    };
+    Object.keys(updateFields).forEach(
+      (key) =>
+        (updateFields[key] === "" || undefined) && delete updateFields[key]
+    );
+    await User.findByIdAndUpdate(id, updateFields);
+
+    console.log("Updated to db successfully");
+    revalidatePath("/dashboard/users");
+    redirect("/dashboard/users");
+  } catch (e) {
+    console.log("Something went wrong while updating user" + e);
+    throw e;
+  }
+};
+export const updateProduct = async (formData) => {
+  "use server";
+  const { id, title, desc, price, stock, color, size } =
+    Object.fromEntries(formData);
+
+  try {
+    await connectToDb();
+
+    const updateFields = {
+      title,
+      desc,
+      price,
+      stock,
+      color,
+      size,
+    };
+    Object.keys(updateFields).forEach(
+      (key) =>
+        (updateFields[key] === "" || undefined) && delete updateFields[key]
+    );
+    await Product.findByIdAndUpdate(id, updateFields);
+
+    console.log("Updated to db successfully");
+    revalidatePath("/dashboard/products");
+    redirect("/dashboard/products");
+  } catch (e) {
+    console.log("Something went wrong while updating user" + e);
+    throw e;
+  }
+};
 export const addProdcut = async (formData) => {
   "use server";
   // const username = formData.get('username')
@@ -59,7 +120,7 @@ export const addProdcut = async (formData) => {
     throw e;
   }
 };
-export const deleteProdcut = async (formData) => {
+export const deleteProduct = async (formData) => {
   "use server";
   // const username = formData.get('username')
   const { id } = Object.fromEntries(formData);
@@ -72,6 +133,22 @@ export const deleteProdcut = async (formData) => {
     revalidatePath("/dashboard/products");
   } catch (e) {
     console.log("Something went wrong while Deleting product");
+    throw e;
+  }
+};
+export const deleteUser = async (formData) => {
+  "use server";
+  // const username = formData.get('username')
+  const { id } = Object.fromEntries(formData);
+  try {
+    await connectToDb();
+
+    await User.findByIdAndDelete(id);
+
+    console.log("Deleted from db successfully");
+    revalidatePath("/dashboard/users");
+  } catch (e) {
+    console.log("Something went wrong while Deleting user");
     throw e;
   }
 };
