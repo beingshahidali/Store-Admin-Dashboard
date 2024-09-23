@@ -55,7 +55,23 @@ export const addProdcut = async (formData) => {
     revalidatePath("/dashboard/products");
     redirect("/dashboard/products");
   } catch (e) {
-    console.log("Something went wrong while adding user");
+    console.log("Something went wrong while adding product");
+    throw e;
+  }
+};
+export const deleteProdcut = async (formData) => {
+  "use server";
+  // const username = formData.get('username')
+  const { id } = Object.fromEntries(formData);
+  try {
+    await connectToDb();
+
+    await Product.findByIdAndDelete(id);
+
+    console.log("Deleted from db successfully");
+    revalidatePath("/dashboard/products");
+  } catch (e) {
+    console.log("Something went wrong while Deleting product");
     throw e;
   }
 };
